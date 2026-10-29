@@ -8,7 +8,7 @@ import subprocess
 
 ROOT = Path(__file__).resolve().parent
 NODE = os.environ.get("NODE_BIN", "node")
-SITE_URL = os.environ.get("SITE_URL", "https://ingvar-ua.github.io/GameWar/").rstrip("/") + "/"
+SITE_URL = os.environ.get("SITE_URL", "https://gamewar.fun/").rstrip("/") + "/"
 script = (ROOT / "script.js").read_text(encoding="utf-8")
 match = re.search(r"const translations = (\{[\s\S]*?\n\});\n\ndocument\.querySelectorAll", script)
 if not match:
