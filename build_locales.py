@@ -50,7 +50,7 @@ for lang in ("uk", "ru"):
     doc = html.fromstring(etree.tostring(source, encoding="unicode"))
     doc.set("lang", lang)
     head = doc.find("head")
-    for stale in head.xpath('./link[@rel="canonical" or @rel="alternate"] | ./meta[starts-with(@property,"og:") or @name="twitter:card"]'):
+    for stale in head.xpath('./link[@rel="canonical" or @rel="alternate" or @rel="icon" or @rel="shortcut icon"] | ./meta[starts-with(@property,"og:") or starts-with(@name,"twitter:")]'):
         head.remove(stale)
     title = "З ким пограти в Call of Duty на PS5 — команда для Warzone і DMZ | GameWar" if lang == "uk" else "С кем поиграть в Call of Duty на PS5 — команда для Warzone и DMZ | GameWar"
     description = (
@@ -93,14 +93,20 @@ for lang in ("uk", "ru"):
     add_link(head, "alternate", SITE_URL, "uk")
     add_link(head, "alternate", SITE_URL + "ru/", "ru")
     add_link(head, "alternate", SITE_URL, "x-default")
+    add_link(head, "icon", SITE_URL + "favicon.svg")
+    add_link(head, "shortcut icon", SITE_URL + "favicon.ico")
     add_meta(head, "og:type", "website", True)
     add_meta(head, "og:site_name", "GameWar", True)
     add_meta(head, "og:locale", "uk_UA" if lang == "uk" else "ru_RU", True)
     add_meta(head, "og:title", title, True)
     add_meta(head, "og:description", description, True)
     add_meta(head, "og:url", canonical, True)
-    add_meta(head, "og:image", SITE_URL + "assets/operators-official.webp", True)
+    add_meta(head, "og:image", SITE_URL + "assets/og-gamewar.jpg", True)
+    add_meta(head, "og:image:width", "1200", True)
+    add_meta(head, "og:image:height", "630", True)
+    add_meta(head, "og:image:alt", "GameWar — загін для твоєї гри в Call of Duty на PS5", True)
     add_meta(head, "twitter:card", "summary_large_image")
+    add_meta(head, "twitter:image", SITE_URL + "assets/og-gamewar.jpg")
 
     output = ROOT / ("index.html" if lang == "uk" else "ru/index.html")
     output.parent.mkdir(parents=True, exist_ok=True)

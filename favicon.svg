@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="11" fill="#101112"/>
+  <path d="M9 10h46v4H9zM9 50h46v4H9z" fill="#da733e"/>
+  <text x="7" y="43" fill="#f4f2ed" font-family="Impact,'Arial Black',sans-serif" font-size="35" letter-spacing="-2">G</text>
+  <text x="31" y="43" fill="#da733e" font-family="Impact,'Arial Black',sans-serif" font-size="35" letter-spacing="-2">W</text>
+</svg>
