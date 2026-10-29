@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ingvar-ua.github.io/GameWar/sitemap.xml
